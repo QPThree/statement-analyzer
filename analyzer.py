@@ -8,24 +8,24 @@ import matplotlib
 import matplotlib.pyplot as plt  # Pie chart from matplotlib docs
 matplotlib.use('Agg')
 
+import sys
 
 def main():
-
     #Prompts user for month entry
-    selected_month = get_month_from_user()
+    selected_month = get_month_from_user() #Now comes from command line
+
 
     excel_file = f'statements/{selected_month}Statement.xlsx'
 
-    #statement_data = pd.read_excel(excel_file, sheet_name=0, index_col=0)
-    config_matplot_figure(excel_file)
+    config_matplot_figure(excel_file) #configure our figure
     save_figure(selected_month)
 
     
-
+# TODO Change name of this as it comes from command line
 def get_month_from_user():
      #TODO: Add checks here. Maybe make into selectabel list?
-    selected_month = input("Which month would you like to see data for?")
-   
+    selected_month = str(sys.argv[1])
+    print(selected_month)
     return selected_month
 
 def config_matplot_figure(excel_file):
@@ -40,27 +40,17 @@ def config_matplot_figure(excel_file):
             values[row['category']] += row['amount']
         else:
             values[row['category']] = row['amount']
-    # This now has totals
-    print("VALUES:", values)
-    print("LABELS:", labels)
     sizes = list(values.values())
-    print("SIZES:", sizes)
-    # 3. use matplotlib to display data
+    fig1, axs = plt.subplots()
 
-    fig1, ax1 = plt.subplots()
-
-    # This from matplot lib docs
-    ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
+    # followign from matplotlib docs
+    axs.pie(sizes, labels=labels, autopct='%1.1f%%',
             shadow=True, startangle=90)
     # Equal aspect ratio ensures that pie is drawn as a circle.
-    ax1.axis('equal')
-
-
-    # print(statement_data.head())
-
+    axs.axis('equal')
 
 def save_figure(selected_month):
-    plt.savefig(f"saved/{selected_month}", bbox_inches='tight')
+    plt.savefig(f"output/{selected_month}", bbox_inches='tight')
 
 if __name__ == "__main__":
     main()
