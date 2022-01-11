@@ -5,24 +5,26 @@
 
 import pandas as pd
 import matplotlib
-import matplotlib.pyplot as plt  # Pie chart from matplotlib docs
+import matplotlib.pyplot as plt
+
+from HighestCharges import HighestCharges  # Pie chart from matplotlib docs
 matplotlib.use('Agg')
 
 import sys
 
 def main():
     #Prompts user for month entry
-    selected_month = get_month_from_user() #Now comes from command line
+    selected_month = get_month_from_args() #Now comes from command line
 
 
     excel_file = f'statements/{selected_month}Statement.xlsx'
-
+    HighestCharges(excel_file, selected_month)
     config_matplot_figure(excel_file) #configure our figure
     save_figure(selected_month)
 
     
 # TODO Change name of this as it comes from command line
-def get_month_from_user():
+def get_month_from_args():
      #TODO: Add checks here. Maybe make into selectabel list?
     selected_month = str(sys.argv[1])
     print(selected_month)
@@ -51,6 +53,7 @@ def config_matplot_figure(excel_file):
 
 def save_figure(selected_month):
     plt.savefig(f"output/{selected_month}", bbox_inches='tight')
+    print("Your file has been saved!")
 
 if __name__ == "__main__":
     main()
