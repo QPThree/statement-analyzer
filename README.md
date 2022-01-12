@@ -9,7 +9,7 @@
 
 ## Motivation
 
-Give the user a personalized visual of the personal financial spending.
+To get a personalized visualization of monthly credit card spending and personal financing.
 
 ## Description
 
