@@ -30,3 +30,11 @@ The Statement-Analyzer will look at a users credit card statement and give the u
 NOTE: Statements must be saved in "statement-analyzer/statements" folder
 
 NOTE: Current naming convention for statements is "MonthStatement.xlsx" (e.g. JuneStatement.xlsx)
+
+### Example command line entry
+
+> \>python3 analyzer.py january
+
+#### help 
+
+> \>python3 analayzer.py -h
