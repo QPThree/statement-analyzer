@@ -28,4 +28,5 @@ The Statement-Analyzer will look at a users credit card statement and give the u
 3. Terminal will give proof of completion and save. Visuals can be found in the "output" folder within the statement analyzer directory
 
 NOTE: Statements must be saved in "statement-analyzer/statements" folder
+
 NOTE: Current naming convention for statements is "MonthStatement.xlsx" (e.g. JuneStatement.xlsx)
