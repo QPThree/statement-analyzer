@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-class HighestCharges:
+class HighestChargesFactory:
 
     def __init__(self, file, month):
         self.purchases = []
@@ -11,8 +11,7 @@ class HighestCharges:
         self.config_data_table(file)
 
     def config_data_table(self, excel_file):
-        statement_data = pd.read_excel(excel_file, sheet_name=0, index_col=0)
-        #print(statement_data.sort_values('amount', ascending=False).head(5))
+        statement_data = pd.read_excel(excel_file, sheet_name=0, index_col=0).sort_values('amount', ascending=False).head(5)
         for index, row in statement_data.head(5).iterrows():
             self.purchases.append(row['purchase'])
             self.data.append([row['purchase'],row['amount'], row['category']])
@@ -35,4 +34,4 @@ class HighestCharges:
 
     def save_figure(self, selected_month):
         plt.savefig(f"output/{selected_month}Top5", bbox_inches='tight')
-        print("Your file has been saved from highest charges!")
+        print("Top charges file has been saved!")
