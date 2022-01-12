@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """Analyzer.py executed at runtime"""
-
-from HighestChargesFactory import HighestChargesFactory  # Pie chart from matplotlib docs
-from PieChartFactory import PieChartFactory
-import sys #for cli
 import argparse
+from HighestChargesFactory import HighestChargesFactory
+from PieChartFactory import PieChartFactory
 
 def main():
     parser = argparse.ArgumentParser(description='Enter month of statement to analyze')
