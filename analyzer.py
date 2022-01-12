@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-"""Docs comment here"""
+"""Analyzer.py executed at runtime"""
 
 from HighestChargesFactory import HighestChargesFactory  # Pie chart from matplotlib docs
 from PieChartFactory import PieChartFactory
 import sys #for cli
+import argparse
 
 def main():
-
-    selected_month = get_month_from_args() #Now comes from command line
-    excel_file = get_excel_file(selected_month) #Access to relevant data
+    parser = argparse.ArgumentParser(description='Enter month of statement to analyze')
+    parser.add_argument('selected_month',  help='e.g. December')
+    args = parser.parse_args()
+    excel_file = get_excel_file(args.selected_month) #Access to relevant data
 
     # Calls to data vis file creations
-    HighestChargesFactory(excel_file, selected_month)
-    PieChartFactory(excel_file, selected_month)
-
-def get_month_from_args():
-     #TODO: Add checks here. Maybe make into selectabel list?
-    selected_month = str(sys.argv[1])
-    return selected_month
+    HighestChargesFactory(excel_file, args.selected_month)
+    PieChartFactory(excel_file, args.selected_month)
 
 def get_excel_file(selected_month):
     return f'statements/{selected_month}Statement.xlsx'
