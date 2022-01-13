@@ -3,6 +3,7 @@
 import argparse
 from HighestChargesFactory import HighestChargesFactory
 from PieChartFactory import PieChartFactory
+from ScatterPlotFactory import ScatterPlotFactory
 
 def main():
     parser = argparse.ArgumentParser(description='Enter month of statement to analyze as argument')
@@ -14,6 +15,7 @@ def main():
     try:
         HighestChargesFactory(excel_file, args.selected_month)
         PieChartFactory(excel_file, args.selected_month)
+        ScatterPlotFactory(excel_file, args.selected_month)
     except:
         print("File not found! Check verify the month entered is in the statements folder")
 
