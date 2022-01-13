@@ -30,12 +30,12 @@ class PieChartFactory():
         axs.axis('equal')
        
     def save_figure(self, selected_month):
-        MYDIR = (selected_month)
-        CHECK_FOLDER = os.path.isdir(f"output/{MYDIR}")
+        DIR = (selected_month)
+        CHECK_FOLDER = os.path.isdir(f"output/{DIR}")
 
         # If folder doesn't exist, then create it.
         if not CHECK_FOLDER:
-            os.makedirs(f"output/{MYDIR}")
+            os.makedirs(f"output/{DIR}")
 
         plt.savefig(f"output/{selected_month}/Pie", bbox_inches='tight')
         print("Your Pie Chart has been saved!")
