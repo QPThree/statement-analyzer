@@ -17,7 +17,7 @@ The Statement-Analyzer will look at a users credit card statement and give the u
 
 ## Tech
 
-* Python
+* Python3
 * Pandas
 * matplotlib
 * git
