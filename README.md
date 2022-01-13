@@ -13,7 +13,7 @@ To get a personalized visualization of monthly credit card spending and personal
 
 ## Description
 
-The Statement-Analyzer will look at a users credit card statement and give the user visuals of their spending for the month. Version 1.0.0 gives the user a categorical pie chart of their spending.
+The Statement-Analyzer will look at a users credit card statement and give the user visuals of their spending for the month. Version 1.0.0 gives the user 3 outputs: Pie chart, scatter plot, and top 5 expenses.
 
 ## Tech
 
