@@ -2,8 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
+from FileSaver import FileSaver
 
-class HighestChargesFactory:
+
+class HighestChargesFactory(FileSaver):
 
     def __init__(self, file, month):
         self.purchases = []
@@ -23,7 +25,7 @@ class HighestChargesFactory:
             colLabels = statement_data.columns.tolist(),
             rowLabels = rank,
             cellText = self.data)
-        self.save_figure(self.month)
+        self.save_figure(self.month,plt, "Top5")
 
     def fill_rank(self):
         rankarr = []
@@ -32,14 +34,3 @@ class HighestChargesFactory:
             rankarr.append(i)
             i += 1
         return rankarr
-
-    def save_figure(self, selected_month):
-        DIR = (selected_month)
-        CHECK_FOLDER = os.path.isdir(f"output/{DIR}")
-
-        # If folder doesn't exist, then create it.
-        if not CHECK_FOLDER:
-            os.makedirs(f"output/{DIR}")
-
-        plt.savefig(f"output/{selected_month}/Top5", bbox_inches='tight')
-        print("Top charges file has been saved!")
