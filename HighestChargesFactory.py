@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 
 class HighestChargesFactory:
@@ -33,5 +34,12 @@ class HighestChargesFactory:
         return rankarr
 
     def save_figure(self, selected_month):
-        plt.savefig(f"output/{selected_month}Top5", bbox_inches='tight')
+        MYDIR = (selected_month)
+        CHECK_FOLDER = os.path.isdir(f"output/{MYDIR}")
+
+        # If folder doesn't exist, then create it.
+        if not CHECK_FOLDER:
+            os.makedirs(f"output/{MYDIR}")
+
+        plt.savefig(f"output/{selected_month}/Top5", bbox_inches='tight')
         print("Top charges file has been saved!")
