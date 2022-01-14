@@ -19,6 +19,7 @@ def main():
         HighestChargesFactory(excel_file, args.selected_month)
         PieChartFactory(excel_file, args.selected_month)
         ScatterPlotFactory(excel_file, args.selected_month)
+        print("==========\nCheck your output folder to see results!")
     except:
         print("File not found! Check verify the month entered is in the statements folder")
 
